@@ -1,5 +1,5 @@
 import { Event } from './contracts/event';
-export declare const CONTAINER_WIDTH: number;
+export declare const CONTAINER_WIDTH: any;
 /**
  * Get days for month calendar
  * @param {Date} currentDate

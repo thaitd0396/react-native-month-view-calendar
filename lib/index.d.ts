@@ -1,5 +1,5 @@
 import React from 'react';
-import { VirtualizedList, Animated, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
+import { VirtualizedList, Animated } from 'react-native';
 import { Event } from './contracts/event';
 interface MonthViewProps {
     date: Date;
