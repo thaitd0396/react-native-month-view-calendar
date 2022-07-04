@@ -1,49 +1,42 @@
-import React from 'react';
-import CalendarRow from './calendarRow';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 interface CalendarHeaderProps {
-    weekDays: string[];
-    textStyles: {};
+    weekDays: string[]
+    textStyles: {}
 }
 
 class CalendarHeader extends React.Component<CalendarHeaderProps> {
-    static defaultProps: { textStyles: {}; };
+    static defaultProps: { textStyles: {} }
 
     render() {
-        const { weekDays, textStyles } = this.props;
+        const { weekDays, textStyles } = this.props
 
         return (
-            <CalendarRow>
+            <View style={styles.header}>
                 {weekDays.map((label: string, index: number) => (
                     <View key={`${index}`} style={[styles.column]}>
-                        <Text
-                            style={[
-                                styles.text,
-                                textStyles,
-                            ]}
-                        >
-                            {label}
-                        </Text>
+                        <Text style={[styles.text, textStyles]}>{label}</Text>
                     </View>
                 ))}
-            </CalendarRow>
-        );
+            </View>
+        )
     }
 }
 
 CalendarHeader.defaultProps = {
     textStyles: {},
 }
-  
+
 const styles = StyleSheet.create({
+    header: { flexDirection: 'row', backgroundColor: '#F6F6F6', height: 34 },
     column: {
         width: '14.2857142857%',
-        paddingVertical: 10,
+        justifyContent: 'center',
     },
     text: {
         textAlign: 'center',
     },
 })
 
-  export default CalendarHeader;
+export default CalendarHeader
