@@ -7,7 +7,7 @@ declare class CalendarRow extends React.Component<CalendarRowProps> {
     static defaultProps: {
         borderColor: string;
     };
-    render(): any;
+    render(): JSX.Element;
 }
 export default CalendarRow;
 //# sourceMappingURL=calendarRow.d.ts.map

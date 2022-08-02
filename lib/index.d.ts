@@ -1,6 +1,6 @@
-import React from 'react';
-import { VirtualizedList, Animated } from 'react-native';
-import { Event } from './contracts/event';
+import React from "react";
+import { VirtualizedList, Animated, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
+import { Event } from "./contracts/event";
 interface MonthViewProps {
     date: Date;
     weekDays: string[];
@@ -16,6 +16,7 @@ interface MonthViewProps {
         highestMeasuredFrameIndex: number;
         averageItemLength: number;
     }) => void) | undefined;
+    containerStyle?: any;
 }
 interface MonthViewState {
     currentDate: Date | null;
@@ -27,6 +28,7 @@ declare class MonthViewCalendar extends React.Component<MonthViewProps, MonthVie
         weekDays: string[];
         headerTextStyles: {};
         dayTextStyles: {};
+        containerStyle: {};
     };
     state: MonthViewState;
     pageOffset: number;
