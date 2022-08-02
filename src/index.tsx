@@ -38,7 +38,7 @@ interface MonthViewProps {
         averageItemLength: number;
       }) => void)
     | undefined;
-  containerStyle: ViewStyle;
+  containerStyle?: any;
 }
 
 interface MonthViewState {
@@ -55,6 +55,7 @@ class MonthViewCalendar extends React.Component<
     weekDays: string[];
     headerTextStyles: {};
     dayTextStyles: {};
+    containerStyle: {}
   };
 
   state: MonthViewState = {
@@ -303,6 +304,7 @@ MonthViewCalendar.defaultProps = {
   weekDays: ["S", "M", "T", "W", "T", "F", "S"],
   headerTextStyles: {},
   dayTextStyles: {},
+  containerStyle: {}
 };
 
 const styles = StyleSheet.create({
