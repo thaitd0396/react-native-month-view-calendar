@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { ColorValue, StyleSheet, View } from 'react-native'
 
 interface CalendarRowProps {
     children: React.ReactNode
-    borderColor: string
+    borderColor: ColorValue
 }
 
 class CalendarRow extends React.Component<CalendarRowProps> {

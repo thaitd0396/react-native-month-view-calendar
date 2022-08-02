@@ -8,6 +8,7 @@ import {
   NativeScrollEvent,
   Text,
   ViewStyle,
+  ColorValue,
 } from "react-native";
 import { Event } from "./contracts/event";
 import CalendarHeader from "./components/calendarHeader";
@@ -38,7 +39,9 @@ interface MonthViewProps {
         averageItemLength: number;
       }) => void)
     | undefined;
-  containerStyle?: any;
+  backgroundColorContent?: ColorValue;
+  backgroundColorHeader?: ColorValue;
+  borderCellColor?: ColorValue
 }
 
 interface MonthViewState {
@@ -55,7 +58,7 @@ class MonthViewCalendar extends React.Component<
     weekDays: string[];
     headerTextStyles: {};
     dayTextStyles: {};
-    containerStyle: {}
+    backgroundColorContent: "white";
   };
 
   state: MonthViewState = {
@@ -231,7 +234,7 @@ class MonthViewCalendar extends React.Component<
     const days = getDaysOfCalendarMonth(date);
 
     return days.map((week, i) => (
-      <CalendarRow key={`week-${i}`}>
+      <CalendarRow key={`week-${i}`} borderColor={this.props.borderCellColor}>
         {week.map((day: Date, j: number) => {
           const eventsOfDay = findEventsForTheDay(day, this.props.events);
           return (
@@ -242,6 +245,7 @@ class MonthViewCalendar extends React.Component<
               events={eventsOfDay}
               renderEvent={this.props.renderEvent}
               textStyles={this.props.dayTextStyles}
+              borderCellColor={this.props.borderCellColor}
             />
           );
         })}
@@ -250,10 +254,15 @@ class MonthViewCalendar extends React.Component<
   }
 
   render(): React.ReactNode {
-    const { weekDays, headerTextStyles, containerStyle } = this.props;
+    const { weekDays, headerTextStyles, backgroundColorContent, backgroundColorHeader } = this.props;
 
     return (
-      <View style={[styles.calendarContainer, containerStyle]}>
+      <View
+        style={[
+          styles.calendarContainer,
+          { backgroundColor: backgroundColorContent },
+        ]}
+      >
         <VirtualizedList
           ref={this.setRefOfMonthVirtualList}
           keyExtractor={(item) => item}
@@ -268,6 +277,7 @@ class MonthViewCalendar extends React.Component<
                 <CalendarHeader
                   weekDays={weekDays}
                   textStyles={headerTextStyles}
+                  backgroundColorHeader={backgroundColorHeader}
                 />
                 <View style={styles.monthViewExceptHeader}>
                   {this.renderWeekCalendar(item)}
@@ -304,7 +314,7 @@ MonthViewCalendar.defaultProps = {
   weekDays: ["S", "M", "T", "W", "T", "F", "S"],
   headerTextStyles: {},
   dayTextStyles: {},
-  containerStyle: {}
+  backgroundColorContent: 'white',
 };
 
 const styles = StyleSheet.create({

@@ -1,7 +1,8 @@
 import React from 'react';
+import { ColorValue } from 'react-native';
 interface CalendarRowProps {
     children: React.ReactNode;
-    borderColor: string;
+    borderColor: ColorValue;
 }
 declare class CalendarRow extends React.Component<CalendarRowProps> {
     static defaultProps: {
