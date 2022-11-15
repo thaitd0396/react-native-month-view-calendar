@@ -8,7 +8,7 @@ interface CalendarDayProps {
   renderEvent: (value: Event, index: number, array: Event[]) => React.ReactNode;
   events: Event[];
   textStyles: {} | [];
-  borderCellColor?: ColorValue
+  borderCellColor?: ColorValue;
 }
 
 class CalendarDay extends React.Component<CalendarDayProps> {
@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   cell: {
-    width: "14.2857142857%",
+    // width: "14.2857142857%",
+    width: "5%",
     borderColor: "#EBEBEB",
     borderRightWidth: 1,
     minHeight: 65,
