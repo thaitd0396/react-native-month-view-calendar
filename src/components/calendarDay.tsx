@@ -48,8 +48,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   cell: {
-    // width: "14.2857142857%",
-    width: "5%",
+    width: "14.2857142857%",
     borderColor: "#EBEBEB",
     borderRightWidth: 1,
     minHeight: 65,
