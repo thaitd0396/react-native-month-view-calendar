@@ -10,7 +10,7 @@ declare class CalendarHeader extends React.Component<CalendarHeaderProps> {
         textStyles: {};
         backgroundColorHeader: "#F6F6F6";
     };
-    render(): JSX.Element;
+    render(): any;
 }
 export default CalendarHeader;
 //# sourceMappingURL=calendarHeader.d.ts.map

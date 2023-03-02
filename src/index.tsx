@@ -269,7 +269,7 @@ class MonthViewCalendar extends React.Component<
           data={this.state.datesList}
           getItemCount={(data) => data.length}
           getItem={(data, index) => data[index]}
-          initialScrollIndex={this.pageOffset}
+          initialScrollIndex={0}
           horizontal
           renderItem={({ item }) => {
             return (

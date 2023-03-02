@@ -14,7 +14,7 @@ declare class CalendarDay extends React.Component<CalendarDayProps> {
         textStyles: {};
         borderCellColor: "#EBEBEB";
     };
-    render(): JSX.Element;
+    render(): any;
 }
 export default CalendarDay;
 //# sourceMappingURL=calendarDay.d.ts.map
